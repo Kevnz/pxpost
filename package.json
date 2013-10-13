@@ -1,0 +1,27 @@
+{
+  "name": "pxpost",
+  "version": "0.0.1",
+  "description": "A node module for using the Payment Express PXPost service for payment processing",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/Kevnz/pxpost.git"
+  },
+  "keywords": [
+    "payment",
+    "ecommerce",
+    "dps",
+    "paymentexpress",
+    "transactions"
+  ],
+  "author": "Kevin Isom <kevin.isom@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Kevnz/pxpost/issues"
+  },
+  "dependencies": {
+    "request": "~2.27.0",
+    "xml": "0.0.8",
+    "xml2js": "~0.2.8"
+  }
+}

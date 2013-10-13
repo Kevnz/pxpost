@@ -1,0 +1,71 @@
+<Txn>
+    <Transaction success="1" reco="00" responseText="APPROVED" pxTxn="true">
+            <Authorized>1</Authorized>
+            <ReCo>00</ReCo>
+            <RxDate>20090610225432</RxDate>
+            <RxDateLocal>20090611105432</RxDateLocal>
+            <LocalTimeZone>NZT</LocalTimeZone>
+            <MerchantReference>Test Transaction</MerchantReference>
+            <CardName>Visa</CardName>
+            <Retry>0</Retry>
+            <StatusRequired>0</StatusRequired>
+            <AuthCode>105430</AuthCode>
+            <AmountBalance>0.00</AmountBalance>
+            <Amount>1.23</Amount>
+            <CurrencyId>840</CurrencyId>
+            <InputCurrencyId>840</InputCurrencyId>
+            <InputCurrencyName>USD</InputCurrencyName>
+            <CurrencyRate>1.00</CurrencyRate>
+            <CurrencyName>USD</CurrencyName>
+            <CardHolderName>A ANDERSON</CardHolderName>
+            <DateSettlement>20090611</DateSettlement>
+            <TxnType>Purchase</TxnType>
+            <CardNumber>411111........11</CardNumber>
+            <TxnMac>BD43E619</TxnMac>
+            <DateExpiry>1010</DateExpiry>
+            <ProductId></ProductId>
+            <AcquirerDate>20090611</AcquirerDate>
+            <AcquirerTime>105430</AcquirerTime>
+            <AcquirerId>9001</AcquirerId>
+            <Acquirer>Undefined</Acquirer>
+            <AcquirerReCo></AcquirerReCo>
+            <AcquirerResponseText></AcquirerResponseText>
+            <TestMode>0</TestMode>
+            <CardId>2</CardId>
+            <CardHolderResponseText>APPROVED</CardHolderResponseText>
+            <CardHolderHelpText>The Transaction was approved</CardHolderHelpText>
+            <CardHolderResponseDescription>The Transaction was approved</CardHolderResponseDescription>
+            <MerchantResponseText>APPROVED</MerchantResponseText>
+            <MerchantHelpText>The Transaction was approved</MerchantHelpText>
+            <MerchantResponseDescription>The Transaction was approved</MerchantResponseDescription>
+            <UrlFail></UrlFail>
+            <UrlSuccess></UrlSuccess>
+            <EnablePostResponse>0</EnablePostResponse>
+            <PxPayName></PxPayName>
+            <PxPayLogoSrc></PxPayLogoSrc>
+            <PxPayUserId></PxPayUserId>
+            <PxPayXsl></PxPayXsl>
+            <PxPayBgColor></PxPayBgColor>
+            <PxPayOptions></PxPayOptions>
+            <Cvc2ResultCode>P</Cvc2ResultCode>
+            <AcquirerPort>100000000000-18270000</AcquirerPort>
+            <AcquirerTxnRef>486310</AcquirerTxnRef>
+            <GroupAccount>9997</GroupAccount>
+            <DpsTxnRef>000000030884cdc6</DpsTxnRef>
+            <AllowRetry>1</AllowRetry>
+            <DpsBillingId></DpsBillingId>
+            <BillingId></BillingId>
+            <TransactionId>0884cdc6</TransactionId>
+            <PxHostId>00000003</PxHostId>
+            <RmReason></RmReason>
+            <RmReasonId>0000000000000000</RmReasonId>             
+            <RiskScore>-1</RiskScore>             
+            <RiskScoreText></RiskScoreText>          
+         </Transaction>
+         <ReCo>00</ReCo>
+         <ResponseText>APPROVED</ResponseText>
+         <HelpText>Transaction Approved</HelpText>
+         <Success>1</Success>
+         <DpsTxnRef>000000030884cdc6</DpsTxnRef>
+         <TxnRef>inv1278</TxnRef>
+</Txn>
