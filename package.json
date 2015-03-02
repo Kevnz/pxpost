@@ -3,6 +3,9 @@
   "version": "0.0.1",
   "description": "A node module for using the Payment Express PXPost service for payment processing",
   "main": "index.js",
+  "scripts": {
+    "test": "tap test.js"
+  },
   "repository": {
     "type": "git",
     "url": "git://github.com/Kevnz/pxpost.git"
@@ -23,5 +26,9 @@
     "request": "~2.27.0",
     "xml": "0.0.8",
     "xml2js": "~0.2.8"
+  },
+  "devDependencies": {
+    "proxyquire": "^1.3.1",
+    "tap": "^0.7.1"
   }
 }
