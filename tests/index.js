@@ -33,7 +33,7 @@ test("PxPost tests", function(te) {
             } else {
                 console.log(result);
                 console.log(result.Authorized);//Will be 1 for successful transaction
-                t.ok(result.Authorized === 1);
+                t.ok(result.Authorized == 1);
             }
         });
     });

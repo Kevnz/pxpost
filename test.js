@@ -2,11 +2,12 @@
 
 var proxyquire =  require('proxyquire');
 var test = require("tap").test;
-    var returnedResponse = require('fs').readFileSync('./tests/results.xml', {encoding: 'utf8'});
-    var pxpost = proxyquire("./index.js", { 'request' : function (opts, callback) {
-        callback(null, null, returnedResponse);
-    }});
-    console.log(returnedResponse);
+var returnedResponse = require('fs').readFileSync('./tests/results.xml', {encoding: 'utf8'});
+
+var pxpost = proxyquire("./index.js", { 'request' : function (opts, callback) {
+    callback(null, null, returnedResponse);
+}});
+
 test("PxPost tests", function(te) {
 
     test("Make sure PxPost Returns a valid response", function (t) {
@@ -30,9 +31,7 @@ test("PxPost tests", function(te) {
                 //do something
                 console.log(err);
             } else {
-                console.log(result);
-                console.log(result.Authorized);//Will be 1 for successful transaction
-                t.ok(result.Authorized === 1);
+                t.ok(result.Authorized == 1);
             }
         });
 
