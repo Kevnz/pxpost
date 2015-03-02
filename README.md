@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/Kevnz/pxpost.png?branch=master)](https://travis-ci.org/Kevnz/pxpost)
 pxpost
 ======
 
