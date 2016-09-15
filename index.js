@@ -1,7 +1,6 @@
 var request = require('request');
 var xml = require('xml');
 var url = 'https://sec.paymentexpress.com/pxpost.aspx';
-
 var txtTypes = ['Purchase', 'Auth', 'Complete', 'Refund', 'Validate'];
 var SUCCESS_STATUS = 1;
 var FAIL_STATUS = 0;
@@ -23,7 +22,6 @@ module.exports = {
                 { MerchentReference: details.reference }
             ]
         };
-
         request({
             uri: url,
             method: 'POST',
@@ -38,7 +36,6 @@ module.exports = {
                     var parser = new require('xml2js').Parser({ explicitArray: false});
                     process.nextTick(function(){
                         parser.parseString(body, function (error, result){
-                            console.log(result);
                             callback(null, result.Txn.Transaction);
                         });
                     });

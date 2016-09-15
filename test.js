@@ -9,10 +9,8 @@ var pxpost = proxyquire("./index.js", { 'request' : function (opts, callback) {
 }});
 
 test("PxPost tests", function(te) {
-
     test("Make sure PxPost Returns a valid response", function (t) {
         t.plan(1);
-
         pxpost.submit({
             user: '---',
             password: '---',
@@ -28,17 +26,11 @@ test("PxPost tests", function(te) {
             }
         }, function (err, result) {
             if (err) {
-                //do something
                 console.log(err);
             } else {
                 t.ok(result.Authorized == 1);
             }
         });
-
- 
     });
-
- 
-
     te.end();
 })

@@ -11,8 +11,6 @@ test("PxPost tests", function(te) {
 
     test("Make sure PxPost Returns a valid response", function (t) {
         t.plan(2);
-        console.log('Make sure mongo collection is a collection')
-        console.log(module); 
         pxpost.submit({
             user: '---',
             password: '---',
@@ -28,7 +26,6 @@ test("PxPost tests", function(te) {
             }
         }, function (err, result) {
             if (err) {
-                //do something
                 console.log(err);
             } else {
                 console.log(result);
@@ -38,7 +35,7 @@ test("PxPost tests", function(te) {
         });
     });
 
- 
+
 
     te.end();
 })
