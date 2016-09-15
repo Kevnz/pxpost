@@ -1,6 +1,6 @@
 {
   "name": "pxpost",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A node module for using the Payment Express PXPost service for payment processing",
   "main": "index.js",
   "scripts": {
@@ -23,12 +23,12 @@
     "url": "https://github.com/Kevnz/pxpost/issues"
   },
   "dependencies": {
-    "request": "~2.27.0",
-    "xml": "0.0.8",
-    "xml2js": "~0.2.8"
+    "request": "~2.74.0",
+    "xml": "1.0.1",
+    "xml2js": "~0.4.17"
   },
   "devDependencies": {
-    "proxyquire": "^1.3.1",
-    "tap": "^0.7.1"
+    "proxyquire": "^1.7.10",
+    "tap": "^7.1.2"
   }
 }
