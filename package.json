@@ -23,12 +23,12 @@
     "url": "https://github.com/Kevnz/pxpost/issues"
   },
   "dependencies": {
-    "request": "~2.74.0",
+    "request": "~2.76.0",
     "xml": "1.0.1",
     "xml2js": "~0.4.17"
   },
   "devDependencies": {
     "proxyquire": "^1.7.10",
-    "tap": "^7.1.2"
+    "tap": "^8.0.0"
   }
 }
