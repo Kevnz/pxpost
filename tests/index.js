@@ -1,41 +1,60 @@
+const proxyquire = require('proxyquire').noPreserveCache();
+const test = require('tap').test;
+const fs = require('fs');
 
-
-var proxyquire =  require('proxyquire');
-var test = require("tap").test;
-
-test("PxPost tests", function(te) {
-    var returnedResponse = require('fs').readFileSync('./results.xml', {encoding: 'utf8'});
-    var pxpost = proxyquire("../index.js", { 'request' : function (opts, callback) {
+test('PxPost tests', (te) => {
+  test('Make sure PxPost Returns a valid response', (t) => {
+    t.plan(1);
+    const returnedResponse = fs.readFileSync('./tests/results.xml', { encoding: 'utf8' });
+    const pxpost = proxyquire('../index.js', {
+      request: (opts, callback) => {
         callback(null, null, returnedResponse);
-    }});
-
-    test("Make sure PxPost Returns a valid response", function (t) {
-        t.plan(2);
-        pxpost.submit({
-            user: '---',
-            password: '---',
-            amount: '100.00',
-            currency: 'NZD', //defaults to NZD
-            transactionType: 'Purchase', //default and currently only supported option
-            reference: 'Merchant Reference',
-            card: {
-                name: 'John Doe',
-                number: '4111111111111111 ',
-                expiry:'1015',
-                cvc2: '123'
-            }
-        }, function (err, result) {
-            if (err) {
-                console.log(err);
-            } else {
-                console.log(result);
-                console.log(result.Authorized);//Will be 1 for successful transaction
-                t.ok(result.Authorized == 1);
-            }
-        });
+      }
     });
-
-
-
-    te.end();
-})
+    pxpost.submit({
+      user: '---',
+      password: '---',
+      amount: '100.00',
+      currency: 'NZD', // defaults to NZD
+      transactionType: 'Purchase', // default and currently only supported option
+      reference: 'Merchant Reference',
+      card: {
+        name: 'John Doe',
+        number: '4111111111111111 ',
+        expiry: '1015',
+        cvc2: '123'
+      }
+    }, (err, result) => {
+      if (!err) {
+        t.ok(result.Authorized == 1);
+      }
+    });
+  });
+  test('That PxPost handles an error', (t) => {
+    const pxpost = proxyquire('../index.js', {
+      request: (opts, callback) => {
+        callback({ error: true }, null, null);
+      }
+    });
+    t.plan(1);
+    pxpost.submit({
+      user: '---',
+      password: '---',
+      amount: '100.00',
+      currency: 'NZD', // defaults to NZD
+      transactionType: 'Purchase', // default and currently only supported option
+      reference: 'Merchant Reference',
+      card: {
+        name: 'John Doe',
+        number: '4111111111111111 ',
+        expiry: '1015',
+        cvc2: '123'
+      }
+    }, (err) => {
+      if (err) {
+        t.ok(err);
+      }
+    });
+  });
+  te.end();
+});
