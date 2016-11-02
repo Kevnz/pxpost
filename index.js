@@ -1,47 +1,45 @@
-var request = require('request');
-var xml = require('xml');
-var url = 'https://sec.paymentexpress.com/pxpost.aspx';
-var txtTypes = ['Purchase', 'Auth', 'Complete', 'Refund', 'Validate'];
-var SUCCESS_STATUS = 1;
-var FAIL_STATUS = 0;
+const request = require('request');
+const xml = require('xml');
+const Parser = require('xml2js').Parser;
+
+const url = 'https://sec.paymentexpress.com/pxpost.aspx';
 
 module.exports = {
-    submit: function (details, callback) {
-        var dpsData = {
-            Txn: [
-                { PostUsername: details.user },
-                { PostPassword: details.password },
-                { CardHolderName: details.card.name },
-                { CardNumber: details.card.number },
-                { Amount: details.amount },
-                { DateExpiry: details.card.expiry },
-                { Cvc2: details.card.cvc2 },
-                { InputCurrency: details.currency || 'NZD' },
-                { TxnType: details.transactionType || 'Purchase' },
-                { TxnId: details.transactionId || '' },
-                { MerchentReference: details.reference }
-            ]
-        };
-        request({
-            uri: url,
-            method: 'POST',
-            body: xml(dpsData)
-        }, function (err, res, body) {
-            process.nextTick(function () {
-                if(err) {
-                    process.nextTick(function(){
-                        callback(err);
-                    });
-                } else {
-                    var parser = new require('xml2js').Parser({ explicitArray: false});
-                    process.nextTick(function(){
-                        parser.parseString(body, function (error, result){
-                            callback(null, result.Txn.Transaction);
-                        });
-                    });
-                }
-
+  submit: (details, callback) => {
+    const dpsData = {
+      Txn: [
+        { PostUsername: details.user },
+        { PostPassword: details.password },
+        { CardHolderName: details.card.name },
+        { CardNumber: details.card.number },
+        { Amount: details.amount },
+        { DateExpiry: details.card.expiry },
+        { Cvc2: details.card.cvc2 },
+        { InputCurrency: details.currency || 'NZD' },
+        { TxnType: details.transactionType || 'Purchase' },
+        { TxnId: details.transactionId || '' },
+        { MerchentReference: details.reference }
+      ]
+    };
+    request({
+      uri: url,
+      method: 'POST',
+      body: xml(dpsData)
+    }, (err, res, body) => {
+      process.nextTick(() => {
+        if (err) {
+          process.nextTick(() => {
+            callback(err);
+          });
+        } else {
+          const parser = new Parser({ explicitArray: false });
+          process.nextTick(() => {
+            parser.parseString(body, (error, result) => {
+              callback(null, result.Txn.Transaction);
             });
-        });
-    }
+          });
+        }
+      });
+    });
+  }
 };
