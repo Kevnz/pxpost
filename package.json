@@ -7,6 +7,7 @@
     "test": "tap tests/index.js",
     "cov": "tap tests/index.js --cov"
   },
+  "engines" : { "node" : ">= 6" },
   "repository": {
     "type": "git",
     "url": "git://github.com/Kevnz/pxpost.git"
