@@ -24,17 +24,14 @@
     "url": "https://github.com/Kevnz/pxpost/issues"
   },
   "dependencies": {
-    "request": "~2.76.0",
+    "request": "~2.88.0",
     "xml": "1.0.1",
-    "xml2js": "~0.4.17"
+    "xml2js": "~0.4.19"
   },
   "devDependencies": {
-    "eslint": "^3.9.1",
-    "eslint-config-airbnb": "^12.0.0",
-    "eslint-plugin-import": "^1.16.0",
-    "eslint-plugin-jsx-a11y": "^2.2.3",
-    "eslint-plugin-react": "^6.5.0",
-    "proxyquire": "^1.7.10",
-    "tap": "^8.0.0"
+    "@kev_nz/eslint-config": "^3.1.0",
+    "eslint": "^5.14.1",
+    "proxyquire": "^2.1.0",
+    "tap": "^12.5.3"
   }
 }

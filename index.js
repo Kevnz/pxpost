@@ -1,8 +1,9 @@
-const request = require('request');
-const xml = require('xml');
-const Parser = require('xml2js').Parser;
+const request = require('request')
+const xml = require('xml')
+const Parser = require('xml2js').Parser
 
-const url = 'https://sec.paymentexpress.com/pxpost.aspx';
+const url = 'https://sec.paymentexpress.com/pxpost.aspx'
+const uat = 'https://uat.paymentexpress.com/pxpost.aspx'
 
 module.exports = {
   submit: (details, callback) => {
@@ -18,28 +19,31 @@ module.exports = {
         { InputCurrency: details.currency || 'NZD' },
         { TxnType: details.transactionType || 'Purchase' },
         { TxnId: details.transactionId || '' },
-        { MerchentReference: details.reference }
-      ]
-    };
-    request({
-      uri: url,
-      method: 'POST',
-      body: xml(dpsData)
-    }, (err, res, body) => {
-      process.nextTick(() => {
-        if (err) {
-          process.nextTick(() => {
-            callback(err);
-          });
-        } else {
-          const parser = new Parser({ explicitArray: false });
-          process.nextTick(() => {
-            parser.parseString(body, (error, result) => {
-              callback(null, result.Txn.Transaction);
-            });
-          });
-        }
-      });
-    });
-  }
-};
+        { MerchentReference: details.reference },
+      ],
+    }
+    request(
+      {
+        uri: process.env.NODE_ENV === 'production' ? url : uat,
+        method: 'POST',
+        body: xml(dpsData),
+      },
+      (err, res, body) => {
+        process.nextTick(() => {
+          if (err) {
+            process.nextTick(() => {
+              callback(err)
+            })
+          } else {
+            const parser = new Parser({ explicitArray: false })
+            process.nextTick(() => {
+              parser.parseString(body, (error, result) => {
+                callback(error, result.Txn.Transaction)
+              })
+            })
+          }
+        })
+      }
+    )
+  },
+}
