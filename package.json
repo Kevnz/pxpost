@@ -1,6 +1,6 @@
 {
   "name": "pxpost",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "A node module for using the Payment Express PXPost service for payment processing",
   "main": "index.js",
   "scripts": {
@@ -26,6 +26,7 @@
   "bugs": {
     "url": "https://github.com/Kevnz/pxpost/issues"
   },
+  "homepage": "http://kevinisom.info/pxpost",
   "dependencies": {
     "request": "~2.88.0",
     "xml": "1.0.1",
@@ -33,6 +34,7 @@
   },
   "devDependencies": {
     "@kev_nz/eslint-config": "^3.1.0",
+    "@kev_nz/publisher": "^1.0.1",
     "eslint": "^5.14.1",
     "proxyquire": "^2.1.0",
     "tap": "^12.5.3"
