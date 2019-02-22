@@ -1,0 +1,54 @@
+version: 2
+jobs:
+  "node-11":
+    docker:
+      - image: circleci/node:11.9
+    working_directory: ~/pxpost
+    steps:
+      - checkout
+
+      - run: npm install
+      # run tests!
+      - run: npm test
+
+  "node-10":
+    docker:
+      - image: circleci/node:10
+    working_directory: ~/pxpost
+    steps:
+      - checkout
+
+      - run: npm install
+      # run tests!
+      - run: npm test
+
+  "node-8":
+    docker:
+      - image: circleci/node:8
+    working_directory: ~/pxpost
+    steps:
+      - checkout
+
+      - run: npm install
+      # run tests!
+      - run: npm test
+
+  "node-6":
+    docker:
+      - image: circleci/node:6
+    working_directory: ~/pxpost
+    steps:
+      - checkout
+
+      - run: npm install
+      # run tests!
+      - run: npm test
+
+workflows:
+  version: 2
+  build:
+    jobs:
+      - "node-11"
+      - "node-10"
+      - "node-8"
+      - "node-6"
