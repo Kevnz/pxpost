@@ -6,48 +6,41 @@
   <link rel="stylesheet" type="text/css" href="styles.css" />
   <meta name="description" content="A node module for using the Payment Express PXPost service for payment processing" />
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/styles/default.min.css" />
+
 </head>
 
 <body>
   <div class="container">
-  <p><a href="https://travis-ci.org/Kevnz/pxpost"><img src="https://travis-ci.org/Kevnz/pxpost.png?branch=master" alt="Build Status" /></a></p>
+  <p><img src="https://img.shields.io/circleci/project/github/Kevnz/pxpost/master.svg" alt="Build Status" /></p>
 <h1 id="pxpost">PxPost</h1>
 <p>A node module for using the Payment Express PXPost service for payment processing. Currently only supporting making payments.</p>
 <h2 id="install">Install</h2>
-<pre><code class="bash language-bash">$ npm install pxpost</code></pre>
+<pre><code class="hljs bash language-bash">$ npm install pxpost</code></pre>
 <h2 id="usage">Usage</h2>
-<pre><code class="javascript language-javascript">var pxpost = require('pxpost')
+<pre><code class="hljs javascript language-javascript"><span class="hljs-keyword">var</span> pxpost = <span class="hljs-built_in">require</span>(<span class="hljs-string">'pxpost'</span>)
 
 pxpost.submit({
-  user: 'PaymentExpressUser',
-  password: 'PaymentExpressPassword',
-  amount: '100.00',
-  currency: 'NZD', //defaults to NZD
-  transactionType: 'purchase', //default and currently only supported option
-  reference: 'Merchant Reference',
-  card: {
-      name: 'John Doe',
-      number: '4716710503591290',
-      expiry:'1015',
-      cvc2: '123'
+  <span class="hljs-attr">user</span>: <span class="hljs-string">'PaymentExpressUser'</span>,
+  <span class="hljs-attr">password</span>: <span class="hljs-string">'PaymentExpressPassword'</span>,
+  <span class="hljs-attr">amount</span>: <span class="hljs-string">'100.00'</span>,
+  <span class="hljs-attr">currency</span>: <span class="hljs-string">'NZD'</span>, <span class="hljs-comment">//defaults to NZD</span>
+  transactionType: <span class="hljs-string">'purchase'</span>, <span class="hljs-comment">//default and currently only supported option</span>
+  reference: <span class="hljs-string">'Merchant Reference'</span>,
+  <span class="hljs-attr">card</span>: {
+      <span class="hljs-attr">name</span>: <span class="hljs-string">'John Doe'</span>,
+      <span class="hljs-attr">number</span>: <span class="hljs-string">'4716710503591290'</span>,
+      <span class="hljs-attr">expiry</span>:<span class="hljs-string">'1015'</span>,
+      <span class="hljs-attr">cvc2</span>: <span class="hljs-string">'123'</span>
   },
-}, function (err, result) {
-  if (err) {
-    //do something
-  } else {
-    console.log(result.Authorized); //Will be 1 for successful transaction
+}, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">err, result</span>) </span>{
+  <span class="hljs-keyword">if</span> (err) {
+    <span class="hljs-comment">//do something</span>
+  } <span class="hljs-keyword">else</span> {
+    <span class="hljs-built_in">console</span>.log(result.Authorized); <span class="hljs-comment">//Will be 1 for successful transaction</span>
   }
 })</code></pre>
 <h2 id="notes">Notes</h2>
 <p>If you are running in production it uses the Payment Express production URL, otherwise it uses the UAT url.</p>
   </div>
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-64038939-2"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag() { dataLayer.push(arguments); }
-  gtag('js', new Date());
-
-  gtag('config', 'UA-64038939-2');
-</script>
-
 </body>
