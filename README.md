@@ -1,6 +1,7 @@
-![Build Status](https://img.shields.io/circleci/project/github/Kevnz/pxpost/master.svg)
-
 # PxPost
+
+![Build Status](https://img.shields.io/circleci/project/github/Kevnz/pxpost/master.svg)
+[![Coverage Status](https://coveralls.io/repos/github/Kevnz/pxpost/badge.svg?branch=master)](https://coveralls.io/github/Kevnz/pxpost?branch=master)
 
 A node module for using the Payment Express PXPost service for payment processing. Currently only supporting making payments.
 
