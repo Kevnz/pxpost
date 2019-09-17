@@ -1,6 +1,6 @@
 {
   "name": "pxpost",
-  "version": "2.1.0",
+  "version": "3.0.0",
   "description": "A node module for using the Payment Express PXPost service for payment processing",
   "main": "index.js",
   "scripts": {
