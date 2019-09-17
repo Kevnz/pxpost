@@ -5,7 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "tap tests/index.js",
-    "cov": "tap tests/index.js --cov"
+    "cov": "tap tests/index.js --cov",
+    "preversion": "npm test",
+    "postversion": "npm publish --access=public",
+    "postpublish": "git push origin --all --follow-tags && npx publisher"
   },
   "engines": {
     "node": ">= 6"
@@ -30,14 +33,14 @@
   "dependencies": {
     "request": "~2.88.0",
     "xml": "1.0.1",
-    "xml2js": "~0.4.19"
+    "xml2js": "~0.4.22"
   },
   "devDependencies": {
-    "@kev_nz/eslint-config": "^3.2.1",
-    "@kev_nz/publisher": "^3.0.1",
-    "coveralls": "^3.0.3",
-    "eslint": "^5.16.0",
-    "proxyquire": "^2.1.0",
-    "tap": "^12.6.1"
+    "@kev_nz/eslint-config": "^5.0.0",
+    "@kev_nz/publisher": "^4.0.1",
+    "coveralls": "^3.0.6",
+    "eslint": "^6.4.0",
+    "proxyquire": "^2.1.3",
+    "tap": "^14.6.4"
   }
 }
