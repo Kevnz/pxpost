@@ -11,7 +11,7 @@
     "postpublish": "git push origin --all --follow-tags && npx publisher"
   },
   "engines": {
-    "node": ">= 6"
+    "node": ">= 8"
   },
   "repository": {
     "type": "git",
